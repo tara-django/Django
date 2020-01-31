@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     # custom app
     "news",
     "accounts",
+    # Swagger Docs
+    "rest_framework_swagger",
 ]
 
 MIDDLEWARE = [
