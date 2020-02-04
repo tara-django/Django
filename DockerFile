@@ -1,0 +1,6 @@
+FROM python:3.7
+RUN pip install pipenv
+COPY . /temp/app
+RUN cd /temp/app/ && pipenv lock --requirements > requirements.txt && ls
+RUN pip install -r /temp/app/requirements.txt
+CMD ["gunicorn", "bind",":8000","--workers=2", 'test:create_app()', 'project.wsgi.applications']
